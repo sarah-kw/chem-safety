@@ -1,23 +1,21 @@
-import logo from './logo.svg';
-import './App.css';
+import "./App.css";
+import ReactionForm from "./components/ReactionForm";
+import SafetyTable from "./components/SafetyTable";
 
 function App() {
+  const getChemicalInfo = (chemicalList) => {
+    for (const chemical in chemicalList) {
+      console.log(chemicalList[chemical]);
+    }
+  };
+
   return (
     <div className="App">
       <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+        <p>hello there it is safety time</p>
       </header>
+      <ReactionForm getChemicalInfo={getChemicalInfo}></ReactionForm>
+      <SafetyTable></SafetyTable>
     </div>
   );
 }
