@@ -39,6 +39,11 @@
   }
 }
 
+.SafetyApp {
+  display: flex;
+  flex-direction: column;
+}
+
 .ReactionForm {
   background-color: #61dafb;
   margin: 5px;
