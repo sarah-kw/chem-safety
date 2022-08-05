@@ -2,17 +2,47 @@ import React, { useState } from "react";
 
 const ReactionForm = ({ getChemicalInfo }) => {
   const [formData, setFormData] = useState({
-    chemicalA: "",
+    reactants: ["", ""],
+    products: ["", ""],
   });
 
+  const deleteReactantSlot = (id) => {
+    const updatedFormData = { ...formData };
+    delete updatedFormData["reactants"][id];
+    setFormData(updatedFormData);
+    console.log(updatedFormData);
+  };
+
+  const deleteProductSlot = (id) => {
+    const updatedFormData = { ...formData };
+    delete updatedFormData["products"][id];
+    setFormData(updatedFormData);
+    console.log(updatedFormData);
+  };
+
+  const addReactantSlot = () => {
+    const updatedFormData = { ...formData };
+    updatedFormData["reactants"].push("");
+    setFormData(updatedFormData);
+  };
+
+  const addProductSlot = () => {
+    const updatedFormData = { ...formData };
+    updatedFormData["products"].push("");
+    setFormData(updatedFormData);
+  };
+
   const onFormChange = (event) => {
-    const inputName = event.target.name;
+    // console.log(event);
+    // console.log(`id is ${event.target.id}`);
+    const inputClass = event.target.name;
     const inputValue = event.target.value;
 
     const updatedFormData = { ...formData };
-    updatedFormData[inputName] = inputValue;
+    updatedFormData[inputClass][event.target.id] = inputValue;
 
     setFormData(updatedFormData);
+    console.log(updatedFormData);
   };
 
   const onFormSubmit = (event) => {
@@ -20,14 +50,66 @@ const ReactionForm = ({ getChemicalInfo }) => {
     getChemicalInfo(formData);
   };
 
+  const reactantInputs = formData.reactants.map((reactant, index) => {
+    return reactant === undefined ? null : (
+      <div className="InputField" key={index}>
+        <input
+          key={index}
+          id={index}
+          name="reactants"
+          value={reactant}
+          onChange={onFormChange}
+        ></input>
+        <button
+          id={index}
+          type="button"
+          onClick={() => deleteReactantSlot(index)}
+        >
+          Delete
+        </button>
+      </div>
+    );
+  });
+
+  const productInputs = formData.products.map((product, index) => {
+    return product === undefined ? null : (
+      <div className="InputField" key={index}>
+        <input
+          key={index}
+          id={index}
+          name="products"
+          value={product}
+          onChange={onFormChange}
+        ></input>
+        <button
+          id={index}
+          type="button"
+          onClick={() => deleteProductSlot(index)}
+        >
+          Delete
+        </button>
+      </div>
+    );
+  });
+
   return (
     <form className="ReactionForm" onSubmit={onFormSubmit}>
-      <input
-        type="text"
-        name="chemicalA"
-        value={formData.chemicalA}
-        onChange={onFormChange}
-      />
+      <div className="InputBlock">
+        <section className="ReactantInputs">
+          <h2>Reactants</h2>
+          {reactantInputs}
+          <button type="button" onClick={addReactantSlot}>
+            Add Reactant
+          </button>
+        </section>
+        <section className="ProductInputs">
+          <h2>Products</h2>
+          {productInputs}
+          <button type="button" onClick={addProductSlot}>
+            Add Product
+          </button>
+        </section>
+      </div>
       <input type="submit" />
     </form>
   );

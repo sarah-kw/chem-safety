@@ -1,5 +1,7 @@
 .App {
   text-align: center;
+  display: flex;
+  flex-direction: column;
 }
 
 .App-logo {
@@ -35,4 +37,74 @@
   to {
     transform: rotate(360deg);
   }
+}
+
+.ReactionForm {
+  background-color: #61dafb;
+  margin: 5px;
+  min-width: 80%;
+  align-self: center;
+  justify-content: space-around;
+}
+
+.InputBlock {
+  display: flex;
+  justify-content: space-around;
+}
+
+.InputBlock button {
+  min-width: max-content;
+  max-width: 50%;
+  align-self: center;
+}
+
+.InputBlock button:hover {
+  background-color: pink;
+}
+
+.InputField{
+  display:flex;
+  margin: 5px;
+  align-items: space-between;
+}
+.InputField > * {
+  margin: 3px;
+}
+
+.ReactantInputs {
+  display: flex;
+  flex-direction: column;
+}
+
+.ProductInputs {
+  display: flex;
+  flex-direction: column;
+}
+
+
+input[type=submit] {
+  margin: 10px;
+}
+
+.SafetyTable {
+  margin: 10px;
+  align-self: center;
+  table-layout: fixed;
+  width: 80%;
+}
+
+.SafetyTable thead {
+  background-color: white;
+}
+
+.SafetyTable td {
+  word-wrap: break-word;
+}
+
+.SafetyRow--HazardsAvailable {
+  background-color: lightgrey;
+}
+
+.SafetyRow--HazardsUnavailable {
+  background-color: lightcoral;
 }
