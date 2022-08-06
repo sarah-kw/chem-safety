@@ -46,6 +46,12 @@ function SafetyApp() {
 
   return (
     <div className="SafetyApp">
+      <section className="AppHowTo">
+        <p>
+          Usage: Input reactants and products by name or SMILES. Press submit to
+          generate a safety report.
+        </p>
+      </section>
       <ReactionForm
         className="ReactionForm"
         getChemicalInfo={getChemicalInfo}

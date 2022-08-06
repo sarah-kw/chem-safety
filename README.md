@@ -1,4 +1,20 @@
-# Getting Started with Create React App
+# Chemistry Safety Assistant
+
+
+Chemistry Safety Assistant was built by Sarah Williams as a capstone project for
+Ada Developers Academy (Cohort 17) coding bootcamp.
+
+
+## About the App
+
+
+## About Ada Developers Academy
+
+
+
+
+## Create React App Documentation
+## Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 

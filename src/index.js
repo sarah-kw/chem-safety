@@ -6,6 +6,7 @@ import reportWebVitals from "./reportWebVitals";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import WhatIsGHS from "./routes/WhatIsGHS";
 import SafetyApp from "./routes/SafetyApp";
+import DataSources from "./routes/DataSources";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
@@ -15,6 +16,7 @@ root.render(
         <Route path="/" element={<App />}>
           <Route path="ghs" element={<WhatIsGHS />} />
           <Route path="safety-assistant" element={<SafetyApp />} />
+          <Route path="data" element={<DataSources />} />
         </Route>
       </Routes>
     </BrowserRouter>
