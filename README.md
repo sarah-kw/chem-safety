@@ -9,7 +9,12 @@ Ada Developers Academy (Cohort 17) coding bootcamp.
 
 
 ## About Ada Developers Academy
-
+Ada Developers Academy is "a non-profit, tuition-free
+coding school for women and gender-expansive
+adults. Founded in 2013 to solve the tech pipeline
+issue and help create diverse teams, we focus on
+serving low-income Black, Latine, Indigenous, Pacific
+Islander, and LGBTQIA+ communities." Learn more at https://adadevelopersacademy.org/ .
 
 
 

@@ -17,6 +17,7 @@ root.render(
           <Route path="ghs" element={<WhatIsGHS />} />
           <Route path="safety-assistant" element={<SafetyApp />} />
           <Route path="data" element={<DataSources />} />
+          <Route index element={<SafetyApp />} />
         </Route>
       </Routes>
     </BrowserRouter>

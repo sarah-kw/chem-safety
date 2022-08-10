@@ -6,6 +6,7 @@ import { useState } from "react";
 // import { Outlet, Link } from "react-router-dom";
 
 function SafetyApp() {
+  const deployedURL = "https://chemsafetyasstbackend.azurewebsites.net";
   const [reactionSafetyInfo, setReactionSafetyInfo] = useState(null);
 
   const getChemicalInfo = (chemicalList) => {
@@ -21,7 +22,7 @@ function SafetyApp() {
       }
     }
     axios
-      .get("http://localhost:4567/chemicals", {
+      .get(`${deployedURL}/chemicals`, {
         params: requestParams,
         // headers: {
         //   // "Access-Control-Request-Headers": "hello",
