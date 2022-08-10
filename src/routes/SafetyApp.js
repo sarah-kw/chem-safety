@@ -3,6 +3,8 @@ import ReactionForm from "../components/ReactionForm";
 import SafetyTable from "../components/SafetyTable";
 import axios from "axios";
 import { useState } from "react";
+import DrawReactionForm from "../components/DrawReactionForm";
+import { Link, Outlet, Route } from "react-router-dom";
 // import { Outlet, Link } from "react-router-dom";
 
 function SafetyApp() {
@@ -47,16 +49,14 @@ function SafetyApp() {
 
   return (
     <div className="SafetyApp">
-      <section className="AppHowTo">
-        <p>
-          Usage: Input reactants and products by name or SMILES. Press submit to
-          generate a safety report.
-        </p>
-      </section>
-      <ReactionForm
+      <Link to="/safety-assistant/draw">draw</Link>
+      <Link to="/safety-assistant/text">text</Link>
+      <Outlet context={[getChemicalInfo]} />
+      {/* <ReactionForm
         className="ReactionForm"
         getChemicalInfo={getChemicalInfo}
       ></ReactionForm>
+      <DrawReactionForm getChemicalInfo={getChemicalInfo} /> */}
       {safetyTable}
     </div>
   );

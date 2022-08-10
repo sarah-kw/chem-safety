@@ -93,25 +93,33 @@ const ReactionForm = ({ getChemicalInfo }) => {
   });
 
   return (
-    <form className="ReactionForm" onSubmit={onFormSubmit}>
-      <div className="InputBlock">
-        <section className="ReactantInputs">
-          <h2>Reactants</h2>
-          {reactantInputs}
-          <button type="button" onClick={addReactantSlot}>
-            Add Reactant
-          </button>
-        </section>
-        <section className="ProductInputs">
-          <h2>Products</h2>
-          {productInputs}
-          <button type="button" onClick={addProductSlot}>
-            Add Product
-          </button>
-        </section>
-      </div>
-      <input type="submit" />
-    </form>
+    <React.Fragment>
+      <section className="AppHowTo">
+        <p>
+          Usage: Input reactants and products by name or SMILES. Press submit to
+          generate a safety report.
+        </p>
+      </section>
+      <form className="ReactionForm" onSubmit={onFormSubmit}>
+        <div className="InputBlock">
+          <section className="ReactantInputs">
+            <h2>Reactants</h2>
+            {reactantInputs}
+            <button type="button" onClick={addReactantSlot}>
+              Add Reactant
+            </button>
+          </section>
+          <section className="ProductInputs">
+            <h2>Products</h2>
+            {productInputs}
+            <button type="button" onClick={addProductSlot}>
+              Add Product
+            </button>
+          </section>
+        </div>
+        <input type="submit" />
+      </form>
+    </React.Fragment>
   );
 };
 

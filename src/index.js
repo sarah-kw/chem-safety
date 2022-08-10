@@ -7,6 +7,8 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 import WhatIsGHS from "./routes/WhatIsGHS";
 import SafetyApp from "./routes/SafetyApp";
 import DataSources from "./routes/DataSources";
+import DrawReactionForm from "./components/DrawReactionForm";
+import ReactionForm from "./components/ReactionForm";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
@@ -15,7 +17,11 @@ root.render(
       <Routes>
         <Route path="/" element={<App />}>
           <Route path="ghs" element={<WhatIsGHS />} />
-          <Route path="safety-assistant" element={<SafetyApp />} />
+          <Route path="safety-assistant" element={<SafetyApp />}>
+            <Route path="draw" element={<DrawReactionForm />} />
+            <Route path="text" element={<ReactionForm />} />
+            <Route index element={<ReactionForm />} />
+          </Route>
           <Route path="data" element={<DataSources />} />
           <Route index element={<SafetyApp />} />
         </Route>
