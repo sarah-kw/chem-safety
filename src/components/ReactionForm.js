@@ -1,6 +1,8 @@
 import React, { useState } from "react";
+import { useOutletContext } from "react-router-dom";
 
-const ReactionForm = ({ getChemicalInfo }) => {
+const ReactionForm = () => {
+  const getChemicalInfo = useOutletContext()[0];
   const [formData, setFormData] = useState({
     reactants: ["", ""],
     products: ["", ""],

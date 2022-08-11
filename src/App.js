@@ -1,5 +1,5 @@
 import "./App.css";
-import { Outlet, Link } from "react-router-dom";
+import { Outlet, NavLink } from "react-router-dom";
 
 function App() {
   return (
@@ -9,14 +9,13 @@ function App() {
         <nav>
           <ul>
             <li>
-              <Link to="/safety-assistant">Assistant</Link>
-            </li>
-            {/* <Link to="/about">About</Link> */}
-            <li>
-              <Link to="/ghs">What is GHS?</Link>
+              <NavLink to="/safety-assistant">Assistant</NavLink>
             </li>
             <li>
-              <Link to="data">Data Sources</Link>
+              <NavLink to="/ghs">What is GHS?</NavLink>
+            </li>
+            <li>
+              <NavLink to="data">Data Sources</NavLink>
             </li>
           </ul>
         </nav>

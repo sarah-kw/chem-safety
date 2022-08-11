@@ -3,7 +3,7 @@ import React from "react";
 
 const DataSources = () => {
   return (
-    <section>
+    <section className="DataSources">
       <h2>Data Sources</h2>
       <p>
         This app is powered by the{" "}
@@ -13,9 +13,14 @@ const DataSources = () => {
         <a href="https://pubchem.ncbi.nlm.nih.gov/">PubChem</a>, an open
         chemistry database provided by the National Institutes of Health (NIH).
       </p>
+      <p>
+        Structure drawing uses the{" "}
+        <a href="https://jsme-editor.github.io/">JSME Molecular Editor</a> by
+        Peter Ertl and Bruno Bienfait.
+      </p>
 
       <h2>Citations</h2>
-      <ul>
+      <ol>
         <li>
           Kim, S., Chen, J., Cheng, T., Gindulyte, A., He, J., He, S., Li, Q.,
           Shoemaker, B. A., Thiessen, P. A., Yu, B., Zaslavsky, L., Zhang, J., &
@@ -35,7 +40,12 @@ const DataSources = () => {
           PubChem. J Cheminform. 2019 Aug 9; 11(1):56. [PubMed PMID: 31399858]
           doi: 10.1186/s13321-019-0375-2.
         </li>
-      </ul>
+        <li>
+          Bienfait, Bruno; Ertl, Peter (2013). "JSME: a free molecule editor in
+          JavaScript". Journal of Cheminformatics. 5 (1): 24.
+          doi:10.1186/1758-2946-5-24
+        </li>
+      </ol>
     </section>
   );
 };

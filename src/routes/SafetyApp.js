@@ -1,11 +1,7 @@
-// import "./App.css";
-import ReactionForm from "../components/ReactionForm";
 import SafetyTable from "../components/SafetyTable";
 import axios from "axios";
-import { useState } from "react";
-import DrawReactionForm from "../components/DrawReactionForm";
-import { Link, Outlet, Route } from "react-router-dom";
-// import { Outlet, Link } from "react-router-dom";
+import { useEffect, useState } from "react";
+import { NavLink, Outlet, useLocation } from "react-router-dom";
 
 function SafetyApp() {
   const deployedURL = "https://chemsafetyasstbackend.azurewebsites.net";
@@ -20,9 +16,21 @@ function SafetyApp() {
         !(chemicalList["reactants"][i] === null) &&
         !(chemicalList["reactants"][i] === "")
       ) {
-        requestParams[i] = chemicalList["reactants"][i];
+        const param_id = `r${i}`;
+        requestParams[param_id] = chemicalList["reactants"][i];
       }
     }
+    for (let i = 0; i < chemicalList["products"].length; i++) {
+      console.log(chemicalList["products"][i]);
+      if (
+        !(chemicalList["products"][i] === null) &&
+        !(chemicalList["products"][i] === "")
+      ) {
+        const param_id = `p${i}`;
+        requestParams[param_id] = chemicalList["products"][i];
+      }
+    }
+    console.log(requestParams);
     axios
       .get(`${deployedURL}/chemicals`, {
         params: requestParams,
@@ -47,16 +55,33 @@ function SafetyApp() {
       <SafetyTable safetyInfo={reactionSafetyInfo}></SafetyTable>
     );
 
+  // Removes safety table content when switching between sub-apps
+  const setSafetyTableNull = () => {
+    setReactionSafetyInfo(null);
+  };
+  const location = useLocation();
+  useEffect(() => {
+    setSafetyTableNull();
+  }, [location]);
+
   return (
     <div className="SafetyApp">
-      <Link to="/safety-assistant/draw">draw</Link>
-      <Link to="/safety-assistant/text">text</Link>
+      <header className="SafetyAppHeader">
+        <h2>Safety Assistant</h2>
+        <nav>
+          <ul>
+            <li>
+              <NavLink to="/safety-assistant/text">
+                Text (name or SMILES)
+              </NavLink>
+            </li>
+            <li>
+              <NavLink to="/safety-assistant/draw">Draw Molecules</NavLink>
+            </li>
+          </ul>
+        </nav>
+      </header>
       <Outlet context={[getChemicalInfo]} />
-      {/* <ReactionForm
-        className="ReactionForm"
-        getChemicalInfo={getChemicalInfo}
-      ></ReactionForm>
-      <DrawReactionForm getChemicalInfo={getChemicalInfo} /> */}
       {safetyTable}
     </div>
   );

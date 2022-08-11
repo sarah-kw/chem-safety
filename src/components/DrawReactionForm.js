@@ -1,14 +1,13 @@
-import { Jsme } from "jsme-react";
 import React, { useState } from "react";
 import ReactionDrawInput from "./ReactionDrawInput";
 import { useOutletContext } from "react-router-dom";
 
-// const DrawReactionForm = ({ getChemicalInfo }) => {
 const DrawReactionForm = () => {
   const getChemicalInfo = useOutletContext()[0];
+
   const [formData, setFormData] = useState({
-    reactants: ["", ""],
-    products: ["", ""],
+    reactants: [""],
+    products: [""],
   });
 
   const deleteReactantSlot = (id) => {
@@ -37,30 +36,20 @@ const DrawReactionForm = () => {
     setFormData(updatedFormData);
   };
 
-  const onFormChange = (event) => {
-    console.log(event);
-    console.log(`id is ${event.target.id}`);
-    // const inputClass = event.target.name;
-    const inputValue = event.target.value;
-    console.log(inputValue);
-
-    // const updatedFormData = { ...formData };
-    // updatedFormData[inputClass][event.target.id] = inputValue;
-
-    // setFormData(updatedFormData);
-    // console.log(updatedFormData);
-  };
-
   const onFormSubmit = (event) => {
     event.preventDefault();
     getChemicalInfo(formData);
   };
-  // const onSketchChange = (smiles) => {
-  //   console.log(smiles);
-  // };
-  const updateCallback = (id, smiles) => {
+
+  const updateReactantCallback = (id, smiles) => {
     const updatedFormData = { ...formData };
     updatedFormData["reactants"][id] = smiles;
+    setFormData(updatedFormData);
+    console.log(updatedFormData);
+  };
+  const updateProductCallback = (id, smiles) => {
+    const updatedFormData = { ...formData };
+    updatedFormData["products"][id] = smiles;
     setFormData(updatedFormData);
     console.log(updatedFormData);
   };
@@ -71,7 +60,7 @@ const DrawReactionForm = () => {
         key={index}
         id={index}
         deleteSlot={deleteReactantSlot}
-        updateCallback={updateCallback}
+        updateCallback={updateReactantCallback}
       ></ReactionDrawInput>
     );
   });
@@ -81,33 +70,41 @@ const DrawReactionForm = () => {
       <ReactionDrawInput
         key={index}
         id={index}
-        smiles={formData.products.index}
+        // smiles={formData.products.index}
         deleteSlot={deleteProductSlot}
-        updateCallback={updateCallback}
+        updateCallback={updateProductCallback}
       ></ReactionDrawInput>
     );
   });
 
   return (
-    <form className="DrawReactionForm" onSubmit={onFormSubmit}>
-      <div className="InputBlock">
-        <section className="ReactantInputs">
-          <h2>Reactants</h2>
-          {reactantInputs}
-          <button type="button" onClick={addReactantSlot}>
-            Add Reactant
-          </button>
-        </section>
-        <section className="ProductInputs">
-          <h2>Products</h2>
-          {productInputs}
-          <button type="button" onClick={addProductSlot}>
-            Add Product
-          </button>
-        </section>
-      </div>
-      <input type="submit" />
-    </form>
+    <React.Fragment>
+      <section className="AppHowTo">
+        <p>
+          Usage: Draw reactants or products in the space provided (1 per
+          canvas). Press submit to generate a safety report.
+        </p>
+      </section>
+      <form className="DrawReactionForm" onSubmit={onFormSubmit}>
+        <div className="InputBlock">
+          <section className="ReactantInputs">
+            <h2>Reactants</h2>
+            {reactantInputs}
+            <button type="button" onClick={addReactantSlot}>
+              Add Reactant
+            </button>
+          </section>
+          <section className="ProductInputs">
+            <h2>Products</h2>
+            {productInputs}
+            <button type="button" onClick={addProductSlot}>
+              Add Product
+            </button>
+          </section>
+        </div>
+        <input type="submit" />
+      </form>
+    </React.Fragment>
   );
 };
 

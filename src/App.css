@@ -23,40 +23,46 @@ html, #root, body {
   font-size: calc(10px + 2vmin);
   padding: 5px;
 }
+.App-header nav {
+  align-self: baseline;
+  margin-top: auto;
+}
 
-nav ul {
+.App-header nav ul {
   min-width: 20%;
   display: flex;
   justify-content: space-between;
   margin: 5px;
-}
-
-nav ul {
   list-style: none;
-  display: flex;
+  padding-left: 0px;
 }
 
-nav ul li {
+
+.App-header nav ul li {
   min-width: max-content;
-  padding: 4px;
+  /* padding: 4px; */
   /* width: 150px; */
   word-wrap: normal;
 }
 
-nav a {
+.App-header a {
   color: white;
   text-decoration: none;
+  padding: 10px;
   /* border: 10px solid green; */
 }
 
-nav a:visited {
+.App-header a:visited {
   color: white
 }
 
-nav a:hover {
+.App-header a:hover {
   color: pink;
 }
 
+.App-header .active {
+  background-color: #54616d
+}
 /* .App-link {
   color: #61dafb;
 } */
@@ -71,6 +77,56 @@ footer {
 .SafetyApp {
   display: flex;
   flex-direction: column;
+}
+.SafetyApp h2 {
+  text-align: left;
+}
+.SafetyAppHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-left: 10%;
+  padding-right: 10%;
+}
+
+.SafetyAppHeader nav ul {
+  display: flex;
+  align-items: center;
+  margin: 5px;
+  list-style: none;
+  padding-left: 0px;
+}
+
+.SafetyAppHeader nav ul li {
+  display: flex;
+  /* padding: 15px;
+  margin: 5px; */
+  /* background-color: #61dafb; */
+  /* border-radius: 10px;
+  width: 100px; */
+}
+
+.SafetyAppHeader a {
+  background-color: #61dafb;
+  padding: 15px;
+  margin: 5px;
+  border-radius: 10px;
+  text-decoration: none;
+  color: black;
+}
+
+.SafetyAppHeader a:visited {
+  color: black;
+}
+
+.SafetyAppHeader .active {
+  background-color: #48a8c3;
+}
+
+
+.AppHowTo {
+  padding-left: 10%;
+  padding-right: 10%;
 }
 
 .ReactionForm {
@@ -165,4 +221,11 @@ input[type=submit] {
 
 .SafetyRow--HazardsUnavailable {
   background-color: lightcoral;
+}
+
+
+.DataSources ol li {
+  text-align: left;
+  padding-top: 5px;
+  margin: 20px;
 }
