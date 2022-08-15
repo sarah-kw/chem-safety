@@ -1,0 +1,24 @@
+{
+  "files": {
+    "main.css": "/chem-safety/static/css/main.4c9db93c.css",
+    "main.js": "/chem-safety/static/js/main.d9322e75.js",
+    "static/js/787.cbac1bb3.chunk.js": "/chem-safety/static/js/787.cbac1bb3.chunk.js",
+    "static/media/GHS08-Health_Hazard.svg": "/chem-safety/static/media/GHS08-Health_Hazard.5089225d1856680c7eaca4441b097876.svg",
+    "static/media/GHS05-Corrosives.svg": "/chem-safety/static/media/GHS05-Corrosives.91c49116e435d6822c303ff54e3c172f.svg",
+    "static/media/GHS06-Acute_Toxicity.svg": "/chem-safety/static/media/GHS06-Acute_Toxicity.28173a0d3d5b0339758207e1f58e163e.svg",
+    "static/media/GHS01-Explosives.svg": "/chem-safety/static/media/GHS01-Explosives.7724f385a19554ef2646ca53393462e0.svg",
+    "static/media/GHS09-Environment.svg": "/chem-safety/static/media/GHS09-Environment.af6039c369dddf6b3d8d99f171bf6bff.svg",
+    "static/media/GHS03-Oxidizers.svg": "/chem-safety/static/media/GHS03-Oxidizers.c18638aceb349c6862541322277cc445.svg",
+    "static/media/GHS02-Flammables.svg": "/chem-safety/static/media/GHS02-Flammables.7bebbe10c762956417c420e2c04394fa.svg",
+    "static/media/GHS07-Irritant.svg": "/chem-safety/static/media/GHS07-Irritant.08c3b75da5c973e816d9f6db2d857947.svg",
+    "static/media/GHS04-Compressed_Gases.svg": "/chem-safety/static/media/GHS04-Compressed_Gases.2bff16168998bb31d4bba93cc0de12d3.svg",
+    "index.html": "/chem-safety/index.html",
+    "main.4c9db93c.css.map": "/chem-safety/static/css/main.4c9db93c.css.map",
+    "main.d9322e75.js.map": "/chem-safety/static/js/main.d9322e75.js.map",
+    "787.cbac1bb3.chunk.js.map": "/chem-safety/static/js/787.cbac1bb3.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.4c9db93c.css",
+    "static/js/main.d9322e75.js"
+  ]
+}
