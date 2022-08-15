@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/chem-safety/static/css/main.4c9db93c.css",
-    "main.js": "/chem-safety/static/js/main.d9322e75.js",
+    "main.js": "/chem-safety/static/js/main.91225902.js",
     "static/js/787.cbac1bb3.chunk.js": "/chem-safety/static/js/787.cbac1bb3.chunk.js",
     "static/media/GHS08-Health_Hazard.svg": "/chem-safety/static/media/GHS08-Health_Hazard.5089225d1856680c7eaca4441b097876.svg",
     "static/media/GHS05-Corrosives.svg": "/chem-safety/static/media/GHS05-Corrosives.91c49116e435d6822c303ff54e3c172f.svg",
@@ -14,11 +14,11 @@
     "static/media/GHS04-Compressed_Gases.svg": "/chem-safety/static/media/GHS04-Compressed_Gases.2bff16168998bb31d4bba93cc0de12d3.svg",
     "index.html": "/chem-safety/index.html",
     "main.4c9db93c.css.map": "/chem-safety/static/css/main.4c9db93c.css.map",
-    "main.d9322e75.js.map": "/chem-safety/static/js/main.d9322e75.js.map",
+    "main.91225902.js.map": "/chem-safety/static/js/main.91225902.js.map",
     "787.cbac1bb3.chunk.js.map": "/chem-safety/static/js/787.cbac1bb3.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.4c9db93c.css",
-    "static/js/main.d9322e75.js"
+    "static/js/main.91225902.js"
   ]
 }
