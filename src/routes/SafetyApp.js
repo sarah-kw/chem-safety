@@ -5,6 +5,7 @@ import { NavLink, Outlet, useLocation } from "react-router-dom";
 
 function SafetyApp() {
   const deployedURL = "https://chemsafetyasstbackend.azurewebsites.net";
+  const localURL = "http://localhost";
   const [reactionSafetyInfo, setReactionSafetyInfo] = useState(null);
 
   const getChemicalInfo = (chemicalList) => {
@@ -33,6 +34,7 @@ function SafetyApp() {
     console.log(requestParams);
     axios
       .get(`${deployedURL}/chemicals`, {
+        // .get(`${localURL}/chemicals`, {
         params: requestParams,
         // headers: {
         //   // "Access-Control-Request-Headers": "hello",

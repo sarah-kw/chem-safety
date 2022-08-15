@@ -12,6 +12,7 @@ import GHS08 from "../images/GHS08-Health_Hazard.svg";
 import GHS09 from "../images/GHS09-Environment.svg";
 
 const SafetyTable = ({ safetyInfo }) => {
+  console.log(Object.values(safetyInfo));
   const safetyPictogramDictionary = {
     "GHS01-Explosives": GHS01,
     "GHS02-Flammables": GHS02,
@@ -64,16 +65,16 @@ const SafetyTable = ({ safetyInfo }) => {
 
   const parsePrecautionInfo = (precautions) => {
     const shortPrecautions = precautions.slice(0, 5);
-    const parsedPrecautions = shortPrecautions.map((precaution) => {
+    const parsedPrecautions = shortPrecautions.map((precaution, index) => {
       return precautionCodes[precaution] === undefined ? null : (
-        <li>{precautionCodes[precaution]}</li>
+        <li key={index}>{precautionCodes[precaution]}</li>
       );
     });
     console.log(precautions.length);
     return parsedPrecautions;
   };
 
-  const safetyRows = safetyInfo.map((chemical, index) => {
+  const safetyRows = Object.values(safetyInfo).map((chemical, index) => {
     return (
       <tr
         key={index}
@@ -83,7 +84,14 @@ const SafetyTable = ({ safetyInfo }) => {
             : "SafetyRow--HazardsUnavailable"
         }
       >
-        <td>{chemical.name}</td>
+        {/* <td>{chemical.userInputName}</td> */}
+        <td>
+          {chemical.gotHazards ? chemical.commonName : chemical.userInputName}
+          <br />
+          {chemical.iupacName}
+          <br />
+          {chemical.canonicalSMILES}
+        </td>
         <td>
           {chemical.gotHazards
             ? getSafetyImages(chemical.hazards)
