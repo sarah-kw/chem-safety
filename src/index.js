@@ -13,7 +13,7 @@ import ReactionForm from "./components/ReactionForm";
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   // <React.StrictMode>
-  <BrowserRouter>
+  <BrowserRouter basename="/chem-safety">
     <Routes>
       {/* <Route exact path="/">
         <Redirect to="safety-assistant"></Redirect>
