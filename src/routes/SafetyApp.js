@@ -33,8 +33,8 @@ function SafetyApp() {
     }
     console.log(requestParams);
     axios
-      // .get(`${deployedURL}/chemicals`, {
-      .get(`${localURL}/chemicals`, {
+      .get(`${deployedURL}/chemicals`, {
+        // .get(`${localURL}/chemicals`, {
         params: requestParams,
         // headers: {
         //   // "Access-Control-Request-Headers": "hello",
