@@ -3,16 +3,6 @@
   "version": "0.1.0",
   "homepage": "https://sarah-kw.github.io/chem-safety",
   "private": true,
-  "babel": {
-    "presets": [
-      [
-        "@babel/preset-react",
-        {
-          "throwIfNamespace": false
-        }
-      ]
-    ]
-  },
   "dependencies": {
     "@testing-library/jest-dom": "^5.14.1",
     "@testing-library/react": "^13.0.0",
@@ -51,5 +41,8 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "@babel/preset-react": "^7.18.6"
   }
 }
