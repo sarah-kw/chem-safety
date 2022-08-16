@@ -14,14 +14,17 @@ const DrawReactionForm = () => {
     const updatedFormData = { ...formData };
     delete updatedFormData["reactants"][id];
     setFormData(updatedFormData);
-    console.log(updatedFormData);
+
+    // for debugging
+    // console.log(updatedFormData);
   };
 
   const deleteProductSlot = (id) => {
     const updatedFormData = { ...formData };
     delete updatedFormData["products"][id];
     setFormData(updatedFormData);
-    console.log(updatedFormData);
+    // for debugging
+    // console.log(updatedFormData);
   };
 
   const addReactantSlot = () => {
@@ -45,13 +48,15 @@ const DrawReactionForm = () => {
     const updatedFormData = { ...formData };
     updatedFormData["reactants"][id] = smiles;
     setFormData(updatedFormData);
-    console.log(updatedFormData);
+    // for debugging
+    // console.log(updatedFormData);
   };
   const updateProductCallback = (id, smiles) => {
     const updatedFormData = { ...formData };
     updatedFormData["products"][id] = smiles;
     setFormData(updatedFormData);
-    console.log(updatedFormData);
+    // for debugging
+    // console.log(updatedFormData);
   };
 
   const reactantInputs = formData.reactants.map((reactant, index) => {

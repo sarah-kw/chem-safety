@@ -11,12 +11,11 @@ html, #root, body {
 
 .App-header {
   background-color: #282c34;
-  /* min-height: 100vh; */
   display: flex;
   align-items: center;
   justify-content: space-between;
   padding: 10px;
-  color: white;
+  color: #ffffff;
 }
 
 .App-header h1 {
@@ -46,18 +45,18 @@ html, #root, body {
 }
 
 .App-header a {
-  color: white;
+  color: #ffffff;
   text-decoration: none;
   padding: 10px;
   /* border: 10px solid green; */
 }
 
 .App-header a:visited {
-  color: white
+  color: #ffffff
 }
 
 .App-header a:hover {
-  color: pink;
+  color: #f6a2cc;
 }
 
 .App-header .active {
@@ -69,7 +68,7 @@ html, #root, body {
 
 footer {
   margin-top: auto;
-  color: white;
+  color: #ffffff;
   background-color: #282c34;
   justify-self: flex-end;
 }
@@ -99,11 +98,6 @@ footer {
 
 .SafetyAppHeader nav ul li {
   display: flex;
-  /* padding: 15px;
-  margin: 5px; */
-  /* background-color: #61dafb; */
-  /* border-radius: 10px;
-  width: 100px; */
 }
 
 .SafetyAppHeader a {
@@ -112,11 +106,11 @@ footer {
   margin: 5px;
   border-radius: 10px;
   text-decoration: none;
-  color: black;
+  color: #000000;
 }
 
 .SafetyAppHeader a:visited {
-  color: black;
+  color: #000000;
 }
 
 .SafetyAppHeader .active {
@@ -156,10 +150,6 @@ footer {
   align-self: center;
 }
 
-.InputBlock button:hover {
-  background-color: pink;
-}
-
 .InputField{
   display:flex;
   margin: 5px;
@@ -191,8 +181,12 @@ input[type=submit] {
   width: 80%;
 }
 
+.SafetyTable caption {
+  caption-side: bottom;
+}
+
 .SafetyTable thead {
-  background-color: white;
+  background-color: #ffffff;
 }
 
 .SafetyTable td {
@@ -216,11 +210,11 @@ input[type=submit] {
 }
 
 .SafetyRow--HazardsAvailable {
-  background-color: lightgrey;
+  background-color: #DEDEDE;
 }
 
 .SafetyRow--HazardsUnavailable {
-  background-color: lightcoral;
+  background-color: #f26873;
 }
 
 

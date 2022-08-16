@@ -5,14 +5,20 @@ import { NavLink, Outlet, useLocation } from "react-router-dom";
 
 function SafetyApp() {
   const deployedURL = "https://chemsafetyasstbackend.azurewebsites.net";
-  const localURL = "http://localhost";
+
+  // for working off local backend server
+  // const localURL = "http://localhost";
+
   const [reactionSafetyInfo, setReactionSafetyInfo] = useState(null);
+  const [serverErrorStatus, setServerErrorStatus] = useState(false);
 
   const getChemicalInfo = (chemicalList) => {
     const requestParams = {};
 
     for (let i = 0; i < chemicalList["reactants"].length; i++) {
-      console.log(chemicalList["reactants"][i]);
+      // for debugging
+      // console.log(chemicalList["reactants"][i]);
+
       if (
         !(chemicalList["reactants"][i] === null) &&
         !(chemicalList["reactants"][i] === "")
@@ -22,7 +28,9 @@ function SafetyApp() {
       }
     }
     for (let i = 0; i < chemicalList["products"].length; i++) {
-      console.log(chemicalList["products"][i]);
+      // for debugging
+      // console.log(chemicalList["products"][i]);
+
       if (
         !(chemicalList["products"][i] === null) &&
         !(chemicalList["products"][i] === "")
@@ -31,39 +39,45 @@ function SafetyApp() {
         requestParams[param_id] = chemicalList["products"][i];
       }
     }
-    console.log(requestParams);
+
+    // for debugging
+    // console.log(requestParams);
+
     axios
       .get(`${deployedURL}/chemicals`, {
+        // for working off local backend server
         // .get(`${localURL}/chemicals`, {
+
         params: requestParams,
-        // headers: {
-        //   // "Access-Control-Request-Headers": "hello",
-        // },
       })
       .then((res) => {
-        console.log(res.data);
+        // for debugging
+        // console.log(res.data);
         // console.log(res.headers);
         setReactionSafetyInfo(res.data);
+        setServerErrorStatus(false);
       })
       .catch((err) => {
         console.log(err);
         console.log(err.response.data);
+        setServerErrorStatus(true);
       });
   };
-  // getChemicalInfo(["CC"]);
 
   const safetyTable =
     reactionSafetyInfo === null ? null : (
       <SafetyTable safetyInfo={reactionSafetyInfo}></SafetyTable>
     );
 
-  // Removes safety table content when switching between sub-apps
+  // Removes safety table content and resets server error when switching
+  // between sub-apps
   const setSafetyTableNull = () => {
     setReactionSafetyInfo(null);
   };
   const location = useLocation();
   useEffect(() => {
     setSafetyTableNull();
+    setServerErrorStatus(false);
   }, [location]);
 
   return (
@@ -85,6 +99,9 @@ function SafetyApp() {
       </header>
       <Outlet context={[getChemicalInfo]} />
       {safetyTable}
+      {serverErrorStatus ? (
+        <p className="serverError">an error occurred</p>
+      ) : null}
     </div>
   );
 }

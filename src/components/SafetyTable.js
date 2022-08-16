@@ -12,7 +12,9 @@ import GHS08 from "../images/GHS08-Health_Hazard.svg";
 import GHS09 from "../images/GHS09-Environment.svg";
 
 const SafetyTable = ({ safetyInfo }) => {
-  console.log(Object.values(safetyInfo));
+  // for debugging
+  // console.log(Object.values(safetyInfo));
+
   const safetyPictogramDictionary = {
     "GHS01-Explosives": GHS01,
     "GHS02-Flammables": GHS02,
@@ -28,9 +30,11 @@ const SafetyTable = ({ safetyInfo }) => {
   const getSafetyImages = (hazards) => {
     const pictograms = new Set();
     for (const hazard of hazards) {
-      console.log(`the hazard is ${hazard}`);
+      // for debugging
+      // console.log(`the hazard is ${hazard}`);
       const toLookup = hazard[0].split(" ")[0];
-      console.log(toLookup);
+      // for debugging
+      // console.log(toLookup);
       for (const pictogram of hazardCodes[toLookup].Pictogram) {
         pictograms.add(pictogram);
       }
@@ -70,7 +74,8 @@ const SafetyTable = ({ safetyInfo }) => {
         <li key={index}>{precautionCodes[precaution]}</li>
       );
     });
-    console.log(precautions.length);
+    // for debugging
+    // console.log(precautions.length);
     return parsedPrecautions;
   };
 
@@ -86,29 +91,41 @@ const SafetyTable = ({ safetyInfo }) => {
       >
         {/* <td>{chemical.userInputName}</td> */}
         <td>
-          {chemical.gotHazards ? chemical.commonName : chemical.userInputName}
-          <br />
-          {chemical.iupacName}
-          <br />
-          {chemical.canonicalSMILES}
+          <p>
+            {chemical.commonName ? chemical.commonName : chemical.userInputName}
+          </p>
+          <p>
+            {chemical.iupacName ? `IUPAC Name: ${chemical.iupacName}` : null}
+          </p>
+          <p>
+            {chemical.commonName
+              ? `Canonical SMILES: ${chemical.canonicalSMILES}`
+              : null}
+          </p>
         </td>
         <td>
-          {chemical.gotHazards
-            ? getSafetyImages(chemical.hazards)
-            : "None found"}
+          {chemical.gotHazards ? getSafetyImages(chemical.hazards) : null}
         </td>
         <td>
           {chemical.gotHazards ? (
-            <ul>{parseHazardInfo(chemical.hazards)}</ul>
+            chemical.hazards.length > 0 ? (
+              <ul>{parseHazardInfo(chemical.hazards)}</ul>
+            ) : (
+              "None"
+            )
           ) : (
-            "None found"
+            "Not found"
           )}
         </td>
         <td>
           {chemical.gotHazards ? (
-            <ul>{parsePrecautionInfo(chemical.precautions)}</ul>
+            chemical.precautions.length > 0 ? (
+              <ul>{parsePrecautionInfo(chemical.precautions)}</ul>
+            ) : (
+              "None"
+            )
           ) : (
-            "None found"
+            "Not found"
           )}
         </td>
       </tr>
@@ -117,6 +134,11 @@ const SafetyTable = ({ safetyInfo }) => {
 
   return (
     <table className="SafetyTable">
+      <caption>
+        Note: Rows with red backgrounds indicate that no GHS hazards are
+        available from PubChem -- NOT that no hazards exist. Always use
+        appropriate precautions when working with chemicals!
+      </caption>
       <thead>
         <tr>
           <th>Chemical</th>

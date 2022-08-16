@@ -12,14 +12,16 @@ const ReactionForm = () => {
     const updatedFormData = { ...formData };
     delete updatedFormData["reactants"][id];
     setFormData(updatedFormData);
-    console.log(updatedFormData);
+    // for debugging
+    // console.log(updatedFormData);
   };
 
   const deleteProductSlot = (id) => {
     const updatedFormData = { ...formData };
     delete updatedFormData["products"][id];
     setFormData(updatedFormData);
-    console.log(updatedFormData);
+    // for debugging
+    // console.log(updatedFormData);
   };
 
   const addReactantSlot = () => {
@@ -44,7 +46,9 @@ const ReactionForm = () => {
     updatedFormData[inputClass][event.target.id] = inputValue;
 
     setFormData(updatedFormData);
-    console.log(updatedFormData);
+
+    // for debugging
+    // console.log(updatedFormData);
   };
 
   const onFormSubmit = (event) => {
