@@ -217,9 +217,23 @@ input[type=submit] {
   background-color: #f26873;
 }
 
+.DataSources {
+  width: 80%;
+  align-self: center;
+  /* background-color: #efefef; */
+}
 
 .DataSources ol li {
   text-align: left;
   padding-top: 5px;
   margin: 20px;
+}
+
+.WhatIsGHS {
+  width: 80%;
+  align-self: center;
+  /* background-color: #efefef; */
+}
+.WhatIsGHS p {
+  text-align: left;
 }

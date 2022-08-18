@@ -10,7 +10,6 @@ In addition to core React features, this app uses
 - React router for browser routing
 - The [Chem Safety Assistant Backend](https://github.com/sarah-kw/chem-safety-asst-backend)
 
-
 A live version of the app is available at [www.chemsafety.me](www.chemsafety.me). Both this frontend and the project's Java backend are hosted on Azure. 
 
 This project is open source under the terms of the [MIT License](License.md).
